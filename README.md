@@ -6,7 +6,7 @@ Setup
 =======
 
 1. Please install iMsgBridge on your OS X computer,
-  - Instructions available here: https://github.com/mkpascal/iMsgBridge/blob/master/README.md
+  - Instructions available here: https://github.com/mkpascal/iMsgBridge/
 2. Install iMsgQuickReply on your Pebble,
   - PBW available here: https://github.com/mkpascal/iMsgQuickReply/releases
 3. Configure iMsgQuickReply on the Pebble Time app.
