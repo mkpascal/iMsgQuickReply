@@ -3,6 +3,18 @@ var ajax = require('ajax');
 var Vector2 = require('vector2');
 var Settings = require('settings');
 
+Settings.config(
+    {url: 'https://www.mkpascal.net/iMsgQuickReply/'},
+    function (e) {
+        console.log('opening configurable');
+    },
+    function (e) {
+        console.log('closed configurable');
+        Settings.option('server_url', e.options[0]);
+        Settings.option('password', e.options[1]);
+    }
+);
+
 var replies = [{"title": "Yes"}, {"title": "No"}, {"title": "Maybe"}, {"title": "Wait"}];
 
 var parseFeed = function (data) {
@@ -22,6 +34,7 @@ var title_text = "Quick Reply";
 var font_text = "GOTHIC_28";
 
 var server_url = Settings.option('server_url');
+var password = Settings.option('password');
 
 if (typeof server_url === 'undefined') {
     var title_text = "Please configure the app";
@@ -54,7 +67,7 @@ splashWindow.show();
 
 ajax(
     {
-        url: server_url + '/pebble/contacts?password=changeme',
+        url: server_url + '/pebble/contacts?password=' + password,
         type: 'json'
     },
     function (data) {
@@ -89,14 +102,11 @@ ajax(
 
             answersMenu.show();
 
-
             answersMenu.on('select', function (e) {
-
                 var message = e.item.title;
-
                 ajax(
                     {
-                        url: server_url + '/imsgbridge?to=' + to + '&message=' + message + '&password=changeme',
+                        url: server_url + '/imsgbridge?to=' + to + '&message=' + message + '&password=' + password,
                         type: 'json'
                     });
 
@@ -116,24 +126,11 @@ ajax(
                     answersMenu.hide();
                     sentCard.hide();
                 }, 3000);
-
             });
         });
 
-
         resultsMenu.show();
         splashWindow.hide();
-
     }
 );
 
-Settings.config(
-    {url: 'https://www.mkpascal.net/iMsgQuickReply/'},
-    function (e) {
-        console.log('opening configurable');
-    },
-    function (e) {
-        console.log('closed configurable');
-        Settings.option('server_url', e.options);
-    }
-);
