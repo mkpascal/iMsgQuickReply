@@ -5,12 +5,12 @@ iMsgQuickReply is a Pebble app that will allow you to send quick replies to your
 Setup
 =======
 
-If you downloaded the app in the Pebble app store, skip step 2.
-
-1. Please install iMsgBridge on your OS X computer (https://github.com/mkpascal/iMsgBridge/blob/master/README.md)
-2. Install iMsgQuickReply on your Pebble (available here as a binary or in the Pebble app store)
+1. Please install iMsgBridge on your OS X computer,
+  - Instructions available here: https://github.com/mkpascal/iMsgBridge/blob/master/README.md
+2. Install iMsgQuickReply on your Pebble,
+  - PBW available here: https://github.com/mkpascal/iMsgQuickReply/releases
 3. Configure iMsgQuickReply on the Pebble Time app.
-4. Fill the form with your server URL and password.
+4. Fill the form with your server URL (ex: http://192.168.0.1:4567) and password (ex: changeme).
 5. Restart the app on your watch and you're ready to go.
 
 Notes
