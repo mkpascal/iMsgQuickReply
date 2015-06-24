@@ -15,16 +15,23 @@
     .container {
       text-align: center;
     }
+
+    a, a:active, a:hover, a:visited {
+      color: #ffffff;
+    }
   </style>
 </head>
 
 <body>
 <div class="container">
-  <h4>Please set your server URL here.<br/>It must be a iMsgBridge server.</h4>
+  <h6>Please follow the setup guide here : <a href="https://github.com/mkpascal/iMsgQuickReply">https://github.com/mkpascal/iMsgQuickReply</a></h6>
+  <h4>Please set your server URL and password here.<br/>It must be a iMsgBridge server.</h4>
 
   <form>
     <h5>Server URL:</h5>
     <input type="text" name="server" class="form_server">
+    <h5>Password:</h5>
+    <input type="password" name="password" class="form_password">
     <br/><br/>
     <input class="form_submit" type="submit" value="Submit">
   </form>
@@ -35,8 +42,12 @@
     e.preventDefault();
 
     var server = $(".form_server").val();
+    var password = $(".form_password").val();
 
-    document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(server));
+    var array = [server, password];
+
+    document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(array));
+
   });
 </script>
 </body>
