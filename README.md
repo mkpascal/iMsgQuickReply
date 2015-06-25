@@ -17,4 +17,4 @@ Notes
 =======
 
 This is not for everyone and is available just for experimental purposes. Also, please note that the data communication between the app and your server will not be encrypted by default.
-I am not storing anything and every component of iMsgQuickReply is open source.
+I am not storing anything and every component of iMsgQuickReply is open source. The source code of the configuration page is available on the branch, gh-pages.
